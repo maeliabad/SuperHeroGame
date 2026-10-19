@@ -60,4 +60,9 @@ public class Superhero {
         
         return superHeroDetails;
     }
+
+    public void loseLife() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'loseLife'");
+    }
 }
