@@ -6,16 +6,16 @@ public class Superhero {
     private boolean life;
     private int weaponStrength;
 
-    // Default Constructor
+    // 1. Updated Default Constructor
     public Superhero() {
-        this.name = "Unknown Hero";
-        this.costume = "Standard Suit";
-        this.weapon = "None";
+        this.name = "No name";
+        this.costume = "a t-shirt";
+        this.weapon = "fist";
         this.life = true;
-        this.weaponStrength = (int)(Math.random() * 10) + 1;
+        this.weaponStrength = 0;
     }
 
-    // Parameterized Constructor
+    // Parameterized Constructor (3 arguments)
     public Superhero(String name, String costume, String weapon) {
         this.name = name;
         this.costume = costume;
@@ -24,13 +24,19 @@ public class Superhero {
         this.weaponStrength = (int)(Math.random() * 10) + 1;
     }
 
-    // New Constructor with Custom Weapon Strength
+    // Parameterized Constructor (4 arguments)
     public Superhero(String name, String costume, String weapon, int weaponStrength) {
         this.name = name;
         this.costume = costume;
         this.weapon = weapon;
         this.life = true;
         this.weaponStrength = weaponStrength;
+    }
+
+    // 2.1 specialAttack Method
+    public int specialAttack(int powerLevel) {
+        int randomBonus = (int)(Math.random() * powerLevel) + 1;
+        return this.weaponStrength + randomBonus;
     }
 
     // Getters
@@ -71,22 +77,20 @@ public class Superhero {
         this.life = life;
     }
 
+    // 2.2 Overloaded setWeaponStrength (Random 1-10)
+    public void setWeaponStrength() {
+        this.weaponStrength = (int)(Math.random() * 10) + 1;
+    }
+
+    // 2.3 setWeaponStrength with argument
     public void setWeaponStrength(int weaponStrength) {
         this.weaponStrength = weaponStrength;
     }
 
     // toString Method
     public String toString() {
-        String superHeroDetails = "Superhero Name: " + name + "\n" +
-                "Costume: " + costume + "\n" +
-                "Weapon: " + weapon + " (Strength: " + weaponStrength + ")\n" +
-                "Status: " + (life ? "Alive" : "Defeated");
-
-        return superHeroDetails;
+        return "Superhero Name: " + name + "\n" +
+               "Costume: " + costume + "\n" +
+               "Weapon: " + weapon + " (Strength: " + weaponStrength + ")\n" +
+               "Status: " + (life ? "Alive" : "Defeated");
     }
-
-    // Lose Life Method
-    public void loseLife() {
-        life = false;
-    }
-}
